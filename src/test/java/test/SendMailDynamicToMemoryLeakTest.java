@@ -15,8 +15,8 @@ public class SendMailDynamicToMemoryLeakTest extends CamelTestSupport {
                 from("scheduler:start?delay=1")
                     .setBody(constant("Hello"))
                     .setHeader("smtpFrom", method(UUID.class, "randomUUID"))
-//                    .recipientList(simple("smtp://localhost:1234?to=test@test.com&mail.smtp.from=${header.smtpFrom}")).cacheSize(-1).end();
-                    .toD("smtp://localhost:1234?to=test@test.com&mail.smtp.from=${header.smtpFrom}");
+                    .recipientList(simple("smtp://localhost:1234?to=test@test.com&mail.smtp.from=${header.smtpFrom}")).cacheSize(-1).end();
+//                    .toD("smtp://localhost:1234?to=test@test.com&mail.smtp.from=${header.smtpFrom}");
             }
         };
     }
